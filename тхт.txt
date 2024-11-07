@@ -1,0 +1,57 @@
+# Итоговая контрольная работа
+
+## Информация о проекте
+Необходимо организовать систему учета для питомника в котором живут домашние и Pack animals.  
+
+## 1. Операционные системы и виртуализация (Linux)
+### Задание
+1. Использование команды cat в Linux
+- Создать два текстовых файла: "Pets"(Домашние животные) и "Pack animals"(вьючные животные), используя команду `cat` в терминале Linux. В первом файле перечислить собак, кошек и хомяков. Во втором — лошадей, верблюдов и ослов.
+
+dbuser@dbuser:~$ cat > Pets.txt
+собака, Бобик, 24
+кошка, Мурка, 36
+хомяк, Хома, 12
+dbuser@dbuser:~$ cat > Pack_animals.txt
+лошадь, Буцефал, 60
+верблюд, Гоша, 48
+осел, Иа, 72
+
+- Объединить содержимое этих двух файлов в один
+dbuser@dbuser:~$ cat Pets.txt Pack_animals.txt > All_animals.txt
+- Переименовать получившийся файл в "Human Friends".
+    Пример конечного вывода после команды “ls” :
+dbuser@dbuser:~$ mv All_animals.txt Human_Friends.txt
+dbuser@dbuser:~$ ls
+'Рабочий стол' Документы Загрузки Human_Friends.txt   Pack_animals.txt   
+Изображения   Общедоступные   Шаблоны  log.log  Pets.txt sys Видео Музыка       
+
+2. Работа с директориями в Linux
+- Создать новую директорию и переместить туда файл "Human Friends".
+dbuser@dbuser:~$ mkdir animal
+dbuser@dbuser:~$ mv Human_Friends.txt animal
+dbuser@dbuser:~$ ls
+ animal    sys     Документы   Изображения   Общедоступные   Шаблоны  log.log     Видео   Загрузки    Музыка 'Рабочий стол'
+dbuser@dbuser:~$ cd animal
+dbuser@dbuser:~/animal$ ll
+-rw-rw-r--  1 dbuser dbuser  162 Okt 27 00:11 Human_Friends.txt
+
+3. Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину ”
+- Подключить дополнительный репозиторий MySQL и установить один из пакетов из этого репозитория.
+dbuser@dbuser:~$ wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+dbuser@dbuser:~$ sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
+dbuser@dbuser:~$ sudo apt update
+dbuser@dbuser:~$ sudo apt install mysql-server
+dbuser@dbuser:~$ systemctl status mysql.service
+Okt 28 10:52:40 db-Linux systemd[1]: Started MySQL Community Server.
+
+4. Установить и удалить deb-пакет с помощью dpkg
+dbuser@dbuser:~$ sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
+dbuser@dbuser:~$ sudo dpkg -r mysql-apt-config
+dbuser@dbuser:~$ sudo dpkg --purge mysql-apt-config
+
+##  2. Объектно-ориентированное программирование
+### Задание
+1. Диаграмма классов.
+
+    1.1. Создать диаграмму классов с родительским классом "Животные", и двумя подклассами: "Pets" и "Pack animals". В составы классов которых в случае Pets войдут классы: собаки, кошки, хомяки, а в класс Pack animals войдут: Лошади, верблюды и ослы. Каждый тип животных будет характеризоваться (например, имена, даты рождения, выполняемые команды и т.д). Диаграмму можно нарисовать в любом редакторе.
